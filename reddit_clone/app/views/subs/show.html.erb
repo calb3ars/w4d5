@@ -1,0 +1,16 @@
+<h1><%=@sub.title%></h1>
+
+<p><%=@sub.description  %></p>
+
+<% unless @sub.posts.nil? %>
+  <% @sub.posts.each do |post|%>
+    <%= link_to "#{post.title}", post_url(post) %><br>
+  <% end %>
+<% end %>
+
+<%= link_to "Add a post plz", new_sub_post_url(@sub) %>
+
+
+<% if current_user == @sub.moderator %>
+  <%= button_to "EDIT THIS SUB", edit_sub_url(@sub), method: :get %>
+<% end  %>

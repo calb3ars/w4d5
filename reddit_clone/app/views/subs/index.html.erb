@@ -1,0 +1,7 @@
+<h1>ALL THE SUBS</h1>
+
+  <% @subs.each do |sub|%>
+    <%= link_to "#{sub.title}", sub_url(sub) %><br>
+  <% end %>
+
+  <%= link_to "Add a post plz", new_sub_url(current_user) %>

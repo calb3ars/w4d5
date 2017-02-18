@@ -1,0 +1,10 @@
+<h1><%= @post.title %></h1>
+
+<p>Created by: <%= @post.author.username %></p>
+<p>Part of: <%= @post.sub.title %> thread</p>
+<p><%= @post.content %></p>
+
+
+<% if current_user == @post.author %>
+  <%= button_to "EDIT THIS POST", edit_post_url(@post), method: :get %>
+<% end  %>
